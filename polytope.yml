@@ -269,31 +269,18 @@ modules:
       name: main
       retries: 20
 
-  - id: init-couchbase-bucket
-    module: polytope/couchbase!cbq
-    args:
-      image: gcr.io/arched-inkwell-420116/couchbase:enterprise-7.6.1
-      cluster: couchbase
-      username: admin
-      password: password
-      script: |
-        CREATE COLLECTION main._default.items IF NOT EXISTS;
-        CREATE PRIMARY INDEX IF NOT EXISTS ON main;
-        CREATE PRIMARY INDEX IF NOT EXISTS ON main._default.items;
-      retries: 20
-
- - id: init-couchbase-bucket
-    module: polytope/couchbase!cbq
-    args:
-      image: gcr.io/arched-inkwell-420116/couchbase:enterprise-7.6.1
-      cluster: couchbase
-      username: admin
-      password: password
-      script: |
-        CREATE COLLECTION main._default.employees IF NOT EXISTS;
-        CREATE PRIMARY INDEX IF NOT EXISTS ON main;
-        CREATE PRIMARY INDEX IF NOT EXISTS ON main._default.employees;
-      retries: 20
+   - id: init-couchbase-bucket
+     module: polytope/couchbase!cbq
+     args:
+       image: gcr.io/arched-inkwell-420116/couchbase:enterprise-7.6.1
+       cluster: couchbase
+       username: admin
+       password: password
+       script: |
+         CREATE COLLECTION main._default.items IF NOT EXISTS;
+         CREATE PRIMARY INDEX IF NOT EXISTS ON main;
+         CREATE PRIMARY INDEX IF NOT EXISTS ON main._default.items;
+       retries: 20
 
   - id: redpanda
     info: Runs the Redpanda server in dev mode

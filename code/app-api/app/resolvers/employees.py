@@ -25,7 +25,8 @@ def list_employees() -> List[Employee]:
         env.get_couchbase_conf(),
         f"SELECT name, availability, META().id FROM {env.get_couchbase_bucket()}._default.employees"
     )
-    return [Employee(id=r['META().id'], name=r['name'], availability=r['availability']) for r in result]
+    #return [Employee(**r) for r in result]
+    return [Employee(**r) for r in result]
 
 @strawberry.type
 class Query:
