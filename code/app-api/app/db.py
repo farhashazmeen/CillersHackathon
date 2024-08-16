@@ -37,7 +37,7 @@ def list_items() -> list[Item]:
         f"SELECT name, META().id FROM {env.get_couchbase_bucket()}._default.items"
     )
     return [Item(**r) for r in result]
-
+#Employee collection
 @strawberry.type
 class Employee:
     id: str

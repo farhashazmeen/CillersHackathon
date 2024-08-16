@@ -9,6 +9,7 @@ from ..auth import IsAuthenticated
 
 logger = logging.getLogger(__name__)
 
+#Employee collection
 @strawberry.type
 class Employee:
     id: str
