@@ -8,6 +8,6 @@ logger = logging.getLogger(__name__)
 @strawberry.type
 class Query:
     @strawberry.field(permission_classes=[IsAuthenticated])
-    def hello(self) -> types.Message:
-        return types.Message(message="Welcome to Cillers home hi!")
+    def hello3(self) -> types.Message:
+        return types.Message(message="Welcome to Cillers home hggfd nvb hi!")
 
