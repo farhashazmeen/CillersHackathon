@@ -1,3 +1,4 @@
+from pathlib import Path
 import os
 import logging
 
@@ -6,6 +7,19 @@ from . import couchbase, http_server
 logger = logging.getLogger(__name__)
 
 ## Auth ##
+def load_dotenv(filepath: Path):
+    if os.path.exists(filepath):
+        with open(filepath) as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith('#'):
+                    continue
+                key, value = line.split('=', 1)
+                if key and value:
+                    os.environ[key] = value
+
+env_file_path = Path('/root/conf/.env')
+load_dotenv(env_file_path)
 
 def get_auth_oidc_audience() -> str | None:
     return os.environ.get('AUTH_OIDC_AUDIENCE')

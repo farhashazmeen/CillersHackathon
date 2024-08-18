@@ -3,12 +3,12 @@ import logging
 import openai
 from .. import types
 from ..auth import IsAuthenticated
-
+import os
 
 logger = logging.getLogger(__name__)
 
 #Configure your OpenAI API key (ensure it's securely stored in your environment variables)
-
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 @strawberry.type
 class Query:
     @strawberry.field(permission_classes=[IsAuthenticated])
