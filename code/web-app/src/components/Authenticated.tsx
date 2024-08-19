@@ -3,6 +3,7 @@ import { ApolloProvider } from '@apollo/client';
 import create_api_client from '../utils/apolloClient';
 import Products from './Items';
 
+
 interface AuthenticatedProps {
   userInfo: Record<string, any>; 
   logout: () => void; 
