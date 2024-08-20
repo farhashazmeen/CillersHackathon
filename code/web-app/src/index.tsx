@@ -6,6 +6,8 @@ import { createRoot } from 'react-dom/client';
 import App from './app/App';
 // import * as serviceWorker from './serviceWorker';
 // import reportWebVitals from './reportWebVitals';
+import { StrictMode } from 'react';
+
 /**
  * The root element of the application.
  */
@@ -19,7 +21,9 @@ if (!container) {
  * The root component of the application.
  */
 const root = createRoot(container);
-root.render(<App />);
+root.render(
+		<App />
+);
 // reportWebVitals();
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
