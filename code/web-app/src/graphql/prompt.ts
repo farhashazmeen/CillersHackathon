@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const ITEMS = gql`
+export const PROMPT = gql`
   query testopenaiGet {
     getopenai { message }
   }
